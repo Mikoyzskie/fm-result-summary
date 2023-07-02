@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
+$colors: red, yellow, green, blue;
+:root{
+    --red: rgba(255, 87, 87, 0.7);
+    --yellow: hsla(39, 100%, 56%,0.7);
+    --green: rgba(0, 189, 145, 0.7);
+    --blue: rgba(17, 37, 212, 0.7);
+    --bgred: rgba(255, 87, 87, 0.05);
+    --bgyellow: rgba(255, 176, 31, 0.05);
+    --bggreen: rgba(0, 189, 145, 0.05);
+    --bgblue: rgba(17, 37, 212, 0.05);
+}
+@each $color in $colors{
+    .sum-#{$color}{
+        color:var(--#{$color})
+    }
+}
+
+@each $color in  $colors{
+    .bg#{$color}{
+        background-color:var(--bg#{$color})
+    }
+}
+
+body{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color:hsl(224, 30%, 27%);
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main.card{
+    display: flex;
+    background-color: #fff;
+    justify-content: center;
+    box-shadow: rgba(120, 87, 255,0.1) 0px 10px 15px -3px, rgba(120, 87, 255,0.05) 5px 4px 6px 5px;
+    width: 590px;
+    border-radius: 20px;
+    @media only screen and (max-width:480px){
+        flex-direction: column;
+        height: 100vh;
+    }
+}
+
+.result-card{
+    padding: 30px;
+    background-image: linear-gradient(rgb(120, 87, 255),rgb(46, 43, 233));
+    color: #fff;
+    text-align: center;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-radius: 20px;
+    @media only screen and (max-width:480px){
+        flex-basis: 45%;
+        border-radius: 0 0 20px 20px;
+    }
+    .circle{
+        height: 150px; width: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(rgb(78, 33, 201),rgba(36, 33, 202, 0));
+        border-radius: 50%;
+        h1{
+            font-weight: 800;
+            font-size: 4em;
+        }
+        p{
+            color:hsl(241, 100%, 89%);
+        }
+    }
+    p,h3{
+        color:hsl(241, 100%, 89%);
+    }
+}
+
+.summary-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 50%;
+    padding: 30px;
+    border-radius: 20px;
+    font-weight: 700;
+    @media only screen and (max-width:480px){
+        flex-basis: 55%;
+    }
+    .summary-collection{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 20px 0;
+        height: 100%;
+        .sumName{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-item{
+            display: flex;
+            padding: 10px;
+            justify-content: space-between;
+            border-radius: 10px;
+            @media only screen and (max-width:480px){
+                padding: 20px;
+            }
+            span.over{
+                color:rgba(48, 59, 90, 0.5);
+            }
+        }
+    }
+    button{
+        padding: 15px;
+        width: 100%;
+        background-color: hsl(224, 30%, 27%);
+        color:#fff;
+        border:none;
+        border-radius: 50px;
+        &:hover{
+            background-color: unset;
+            background-image: linear-gradient(rgb(120, 87, 255),rgb(46, 43, 233));
+        }
+    }
+}
+
